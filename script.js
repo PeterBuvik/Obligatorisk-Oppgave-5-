@@ -27,7 +27,9 @@ async function fetchChuckJoke() {
         const data = await fetch('https://api.chucknorris.io//jokes/random');
         const response = await data.json();
         console.log(response); // Debugging: check API response structure
-
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("chuckJokeBtn").addEventListener("click", fetchChuckJoke);
+        });
         if (!response || !response.value) {
             throw new Error("Invalid API response");
         }
