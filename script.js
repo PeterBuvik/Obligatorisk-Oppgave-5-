@@ -1,7 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("fetchCatFactBtn").addEventListener("click", fetchApi);
+    document.getElementById("fetchChuckJokeBtn").addEventListener("click", fetchChuckJoke);
+});
+
 async function fetchApi() {
     const displayCatFact = document.querySelector('#displayCatFact');
     displayCatFact.innerHTML = ""; // Clear previous facts
-    
+
     try {
         const data = await fetch('https://catfact.ninja/facts');
         const response = await data.json();
@@ -22,11 +27,11 @@ async function fetchApi() {
 async function fetchChuckJoke() {
     const displayChuckJoke = document.querySelector('#displayChuckJoke');
     displayChuckJoke.innerHTML = ""; // Clear previous joke
-    
+
     try {
         const data = await fetch('https://api.chucknorris.io/jokes/random');
         const response = await data.json();
-        
+
         const jokeItem = document.createElement('p');
         jokeItem.textContent = response.value;
         displayChuckJoke.appendChild(jokeItem);
@@ -35,9 +40,3 @@ async function fetchChuckJoke() {
         displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
     }
 }
-
-// Ensure buttons are attached after the page loads
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("button[onclick='fetchApi()']").addEventListener("click", fetchApi);
-    document.querySelector("button[onclick='fetchChuckJoke()']").addEventListener("click", fetchChuckJoke);
-});
