@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("button[onclick='fetchApi()']").addEventListener("click", fetchApi);
-    document.querySelector("button[onclick='fetchChuckJoke()']").addEventListener("click", fetchChuckJoke);
-});
 async function fetchApi() {
     const displayCatFact = document.querySelector('#displayCatFact');
     displayCatFact.innerHTML = ""; // Clear previous facts
@@ -43,3 +39,7 @@ async function fetchChuckJoke() {
         displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
     }
 fetchApi();
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("button[onclick='fetchApi()']").addEventListener("click", fetchApi);
+    document.querySelector("button[onclick='fetchChuckJoke()']").addEventListener("click", fetchChuckJoke);
+});
