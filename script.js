@@ -40,3 +40,4 @@ async function fetchChuckJoke() {
         displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
     }
 }
+fetchApi();
