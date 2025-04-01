@@ -22,18 +22,15 @@ async function fetchApi() {
         displayCatFact.textContent = "Failed to load cat facts. Try again!";
     }
 }
-fetchApi();
 async function fetchChuckJoke() {
     const displayChuckJoke = document.querySelector('#displayChuckJoke');
     displayChuckJoke.innerHTML = ""; // Clear previous joke
-
+}
     try {
-        const data = await fetch('https://api.chucknorris.io//jokes/random');
+        const data = await fetch('https://api.chucknorris.io/jokes/random');
         const response = await data.json();
         console.log(response); // Debugging: check API response structure
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("chuckJokeBtn").addEventListener("click", fetchChuckJoke);
-        });
+
         if (!response || !response.value) {
             throw new Error("Invalid API response");
         }
@@ -45,5 +42,4 @@ async function fetchChuckJoke() {
         console.error("Error fetching data:", error);
         displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
     }
-}
 fetchApi();
