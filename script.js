@@ -35,6 +35,8 @@ async function fetchChuckJoke() {
         displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
     }
 }
+
+// Ensure buttons are attached after the page loads
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("button[onclick='fetchApi()']").addEventListener("click", fetchApi);
     document.querySelector("button[onclick='fetchChuckJoke()']").addEventListener("click", fetchChuckJoke);
