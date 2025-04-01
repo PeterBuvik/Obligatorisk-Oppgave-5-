@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("fetchCatFactBtn").addEventListener("click", fetchApi);
-    document.getElementById("fetchChuckJokeBtn").addEventListener("click", fetchChuckJoke);
+    const fetchCatFactBtn = document.getElementById("fetchCatFactBtn");
+    const fetchChuckJokeBtn = document.getElementById("fetchChuckJokeBtn");
+
+    if (fetchCatFactBtn && fetchChuckJokeBtn) {
+        fetchCatFactBtn.addEventListener("click", fetchApi);
+        fetchChuckJokeBtn.addEventListener("click", fetchChuckJoke);
+    } else {
+        console.error("Button elements not found. Check your HTML IDs.");
+    }
 });
 
 async function fetchApi() {
