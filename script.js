@@ -47,3 +47,19 @@ async function fetchChuckJoke() {
         displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
     }
 }
+async function fetchTable() {
+    const displayChuckJoke = document.querySelector('#displayTable');
+    displayChuckJoke.innerHTML = ""; // Clear previous joke
+
+    try {
+        const data = await fetch('https://api.football-data.org/v4/matches');
+        const response = await data.json();
+
+        const tablecontent = document.createElement('p');
+        jokeItem.textContent = response.value;
+        displayTablecontent.appendChild(tablecontent);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        displayChuckJoke.textContent = "Failed to load Chuck Norris joke. Try again!";
+    }
+}
