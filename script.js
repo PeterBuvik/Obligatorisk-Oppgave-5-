@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("button[onclick='fetchApi()']").addEventListener("click", fetchApi);
+    document.querySelector("button[onclick='fetchChuckJoke()']").addEventListener("click", fetchChuckJoke);
+});
 async function fetchApi() {
     const displayCatFact = document.querySelector('#displayCatFact');
     displayCatFact.innerHTML = ""; // Clear previous facts
